@@ -1,0 +1,57 @@
+a {
+  text-decoration: none;
+  pointer-events: none;
+}
+.dayDescription {
+  list-style: none;
+  text-align: right;
+  color: #70757a;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+img {
+  height: 60px;
+  width: 60px;
+  position: relative;
+  top: -10px;
+  margin-right: 10px;
+}
+
+.weatherDetails {
+  list-style: none;
+  text-align: left;
+  color: #70757a;
+  font-size: 16px;
+  line-height: 20px;
+  padding-left: 0;
+  display: inline;
+  max-width: 140px;
+}
+
+.units {
+  position: relative;
+  top: -22px;
+  left: -10px;
+}
+
+.temperature {
+  font-size: 48px;
+  line-height: 56px;
+  margin-right: 9px;
+}
+
+.container {
+  max-width: 700px;
+  /* background-color: #ff0000; */
+  margin-top: 100px;
+  border-radius: 4px;
+  padding-top: 10px;
+}
+
+.cityName {
+  text-align: right;
+  color: #202124;
+  font-size: 22px;
+  line-height: 26px;
+}
