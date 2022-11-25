@@ -76,16 +76,17 @@ currentButton.addEventListener("click", function () {
     let longitude = position.coords.longitude;
     //console.log(longitude);
 
-    let apiKey = "9d5e9ae00531cc47a1afce47e2f9473b";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-
+    let apiKey = "56cb6ef4c4t2co40cabe790e0e85623b";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
+    
+    console.log('***'+ apiUrl);
     axios.get(apiUrl).then((response) => {
-      temperature.innerHTML = Math.round(response.data.main.temp);
-      humidity.innerHTML = Math.round(response.data.main.humidity);
+      temperature.innerHTML = Math.round(response.data.temperature.current);
+      humidity.innerHTML = Math.round(response.data.temperature.humidity);
       wind.innerHTML = Math.round(response.data.wind.speed);
-      cityName.innerHTML = response.data.name;
-      weatherDescription.innerHTML = response.data.weather[0].description;
-      document.getElementById("imageId").src = `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+      cityName.innerHTML = response.data.city;
+      weatherDescription.innerHTML = response.data.condition.description;
+      document.getElementById("imageId").src = response.data.condition.icon_url;
     });
   }
 });
