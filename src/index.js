@@ -1,6 +1,6 @@
 let temperature = document.querySelector(".temperature");
-let celsiusTemp = document.querySelector("#celsiusTemp");
-let fahrenheitTemp = document.querySelector("#fahrenheitTemp");
+let celsiusTemp = document.querySelector(".celsiusTemp");
+let fahrenheitTemp = document.querySelector(".fahrenheitTemp");
 let date = document.querySelector("#date");
 let humidity = document.querySelector(".humidity");
 let wind = document.querySelector(".wind");
@@ -28,6 +28,24 @@ if (searchContent.value.length < 1) {
   });
 }
 
+fahrenheitTemp.addEventListener('click', event => {
+  event.preventDefault();
+  fahrenheitTemp.classList.add('disabledTemp');
+  celsiusTemp.classList.remove('disabledTemp');
+  let fahrenheitTemperature = Math.round(((parseInt(temperature.innerHTML))*9/5) + 32);
+  temperature.innerHTML = fahrenheitTemperature;
+})
+
+
+celsiusTemp.addEventListener('click', event => {
+  event.preventDefault();
+  celsiusTemp.classList.add('disabledTemp');
+  fahrenheitTemp.classList.remove('disabledTemp');
+  let celsiusTemperature = Math.round(((parseInt(temperature.innerHTML))-32) * 5/9);
+  temperature.innerHTML = celsiusTemperature;
+})
+
+
 let cityName = document.querySelector(".cityName");
 let formSearch = document.querySelector("#formSearch");
 formSearch.addEventListener("submit", showSearch);
@@ -36,7 +54,7 @@ function showSearch(event) {
   //cityName.innerHTML = searchContent.value;
   let apiKey = "56cb6ef4c4t2co40cabe790e0e85623b";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchContent.value}&key=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  //console.log(apiUrl);
   axios.get(apiUrl).then((response) => {
     temperature.innerHTML = Math.round(response.data.temperature.current);
     humidity.innerHTML = Math.round(response.data.temperature.humidity);
@@ -53,10 +71,10 @@ currentButton.addEventListener("click", function () {
 
   function showIt(position) {
     let latitude = position.coords.latitude;
-    console.log(latitude);
+    //console.log(latitude);
 
     let longitude = position.coords.longitude;
-    console.log(longitude);
+    //console.log(longitude);
 
     let apiKey = "9d5e9ae00531cc47a1afce47e2f9473b";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;

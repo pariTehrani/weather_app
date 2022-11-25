@@ -1,7 +1,27 @@
-#celsiusTemp {
-  text-decoration: none;
+/* .celsiusTemp {
   pointer-events: none;
+  font-weight: 700;
+  color: black;
+} */
+
+/* .fahrenheitTemp {  
+} */
+
+.removeUnderline {
+  text-decoration: none;
 }
+
+
+/* .activeTemp {
+
+} */
+
+.disabledTemp {
+    pointer-events: none;
+    font-weight: 700;
+    color: black;
+}
+
 .dayDescription {
   list-style: none;
   text-align: right;

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./src/styles.css" />
     <!-- link to axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="icon" href="./src/favicon.png">
     <title>weather app</title>
   </head>
   <body>
@@ -58,7 +59,7 @@
               <img src="" alt="" id="imageId">
               <span class="temperature"></span>
               <span class="units">
-                <a href="#" id="celsiusTemp">°C</a>
+                <a href="#" class="celsiusTemp removeUnderline disabledTemp">°C</a> | <a href="#" class=" fahrenheitTemp removeUnderline">℉</a>
               </span>
             </span>
             <span class="col-6 ps-0 pt-3">
@@ -87,7 +88,8 @@
     </div>
     <footer class="footer mt-5">
       This project was coded by <a href="https://www.shecodes.io/graduates/61869-pari-tehrani">Pari Tehrani</a> and is 
-      <a href="https://github.com/pariTehrani/weather_app" target="_blank">Open-sourced on GitHub</a> and hosted on Netlify
+      <a href="https://github.com/pariTehrani/weather_app/tree/without_forecast" target="_blank">Open-sourced on GitHub</a> and hosted on
+      <a href="https://delicate-yeot-b4b0ed.netlify.app/">Netlify</a>
     </footer>
 	
 
