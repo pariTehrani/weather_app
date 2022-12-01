@@ -167,6 +167,46 @@ currentButton.addEventListener("click", function () {
       cityName.innerHTML = response.data.city;
       weatherDescription.innerHTML = response.data.condition.description;
       document.getElementById("imageId").src = response.data.condition.icon_url;
+      console.log(1111111111111111);
+      let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
+      
+      axios.get(forecastApiUrl).then((forecastResponse) => {
+        console.log(forecastResponse.data);
+        console.log(forecastResponse.data.daily);
+        showForecast.innerHTML = "";
+
+        for (let i = 1; i < 6; i++) {
+          let forecastDate = forecastResponse.data.daily[i].time;
+          forecastDate = new Date(forecastDate * 1000);
+          let forecastDay = forecastDate.toLocaleDateString("en-US", {
+            weekday: "short",
+          });
+
+          showForecast.innerHTML =
+            showForecast.innerHTML +
+            `<span class="mt-4 me-2 mb-3 ms-2 col-2"><ul><li>
+                ${forecastDay}
+              </li>
+              <li>
+                <img src="${
+                  forecastResponse.data.daily[i].condition.icon_url
+                }" alt="" id="imageId">
+              </li>
+              <li>
+                <span>${Math.round(
+                  forecastResponse.data.daily[i].temperature.minimum
+                )}°</span>
+                <span> ${Math.round(
+                  forecastResponse.data.daily[i].temperature.maximum
+                )}° </span>
+              </li>
+            </ul>
+          </span>`;
+          console.log(i);
+        }
+      });
+      console.log(2222222222222);
+
     });
   }
 });
